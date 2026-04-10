@@ -2,24 +2,35 @@
   <img src="images/banner.png" alt="Banner" />
 </p>
 
-<p align="center">
-  <img src="images/icon.png" alt="Hourly Quran Icon" width="200"/>
-</p>
-
 <br>
 
-<p align="center">
-<h1> ☪︎ Hourly Quran ☪︎ </h1>
-  🌙 A calm companion for your day — bringing the Words of Allah ﷻ to you every hour  
-</p>
+<table align="center">
+<tr>
+<td align="center" width="40%">
 
----
+<img src="images/icon.png" alt="Hourly Quran Icon" width="200"/>
+
+</td>
+<td align="left" width="60%">
 
 ## ✨ Overview
 
 **Hourly Quran** is a Windows desktop utility that automatically delivers Qur’anic verses every hour — helping you stay consistent in remembrance, reflection, and recitation.
 
 It blends **automation, simplicity, and spirituality** into a seamless experience.
+
+</td>
+</tr>
+</table>
+
+<br>
+
+<p align="center">
+<h1> ☪︎ Hourly Quran ☪︎ </h1>
+🌙 A calm companion for your day — bringing the Words of Allah ﷻ to you every hour  
+</p>
+
+---
 
 <p align="center">
 
@@ -68,17 +79,24 @@ Expand from selected verses to the entire Surah.
 
 ## 🖼️ Screenshots & Guide
 
-### 🕐 Main Reminder Popup
+<table align="center">
+<tr>
+<td align="center" width="50%">
 
-<p align="center">
-  <img src="images/screenshot.png" alt="Main Popup" />
-</p>
+### 🕐 Main Reminder Popup  
+<img src="images/screenshot.png" alt="Main Popup" />
 
-### ⚙️ Settings Interface
+</td>
+<td align="center" width="50%">
 
-<p align="center">
-  <img src="images/screenshotb.png" alt="Settings Interface" />
-</p>
+### ⚙️ Settings Interface  
+<img src="images/screenshotb.png" alt="Settings Interface" />
+
+</td>
+</tr>
+</table>
+
+---
 
 ### 💡 Usage Tips
 
@@ -113,18 +131,19 @@ Expand from selected verses to the entire Surah.
 
 **Step 3:** Run `Install_HourlyQuran.bat`  
 
-**Step 4:** Input `1` then press `Enter` to install the scheduled task 
+**Step 4:** Input `1` then press `Enter` to install the scheduled task  
 
 **Step 5:** Let the Qur’an accompany your hours 🤲🌙  
 
 > “And remind, for indeed, the reminder benefits the believers.” ☪️  
 
-⚠️ Do NOT move the folder after installation, if it was moved simply repeat step 4.
-And to uninstall input 2 instead of 1.
+⚠️ Do NOT move the folder after installation. If it was moved, simply repeat step 4.  
+To uninstall, input `2` instead of `1`.
 
 ---
 
 ## 📦 Credits
+
 - 👨‍💻 Author → MDJ-Github (Me ^_^)  
 - 📖 Qur’an Text → Risan's Qur’an JSON  
 - 🎧 Recitations → EveryAyah Project  

@@ -1,6 +1,6 @@
 ﻿{
     "surahIndex":  0,
     "verseIndex":  0,
-    "nextMode":  "random",
-    "lastWasRandom":  false
+    "nextMode":  "khatma",
+    "lastWasRandom":  true
 }
