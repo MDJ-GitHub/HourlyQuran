@@ -86,19 +86,11 @@ Expand from selected verses to the entire Surah.
 ### 🕐 Main Reminder Popup  
 <img src="images/screenshot.png" alt="Main Popup" />
 
-</td>
-<td align="center" width="50%">
-
-### ⚙️ Settings Interface  
-<img src="images/screenshotb.png" alt="Settings Interface" />
-
-</td>
-</tr>
-</table>
-
----
+<br>
 
 ### 💡 Usage Tips
+
+<div align="left">
 
 - 📝 **Buttons are in Arabic** → refer to the screenshots for guidance  
 
@@ -121,6 +113,18 @@ Expand from selected verses to the entire Surah.
   Automatically adjusts based on verse length  
   You can close it anytime using the ❌ (top-left button)  
 
+</div>
+
+</td>
+<td align="center" width="50%">
+
+### ⚙️ Settings Interface  
+<img src="images/screenshotb.png" alt="Settings Interface" />
+
+</td>
+</tr>
+</table>
+
 ---
 
 ## 📥 Installation & Tutorial
@@ -138,7 +142,7 @@ Expand from selected verses to the entire Surah.
 > “And remind, for indeed, the reminder benefits the believers.” ☪️  
 
 ⚠️ Do NOT move the folder after installation. If it was moved, simply repeat step 4.  
-To uninstall, input `2` instead of `1`.
+⚠️ To uninstall, input `2` instead of `1`.
 
 ---
 
