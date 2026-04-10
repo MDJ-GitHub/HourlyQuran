@@ -1,11 +1,7 @@
-# 🕌 Hourly Quran
+# ☪︎ Hourly Quran ☪︎
 
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="images/banner.jpg">
-    <source media="(prefers-color-scheme: light)" srcset="images/banner.jpg">
-    <img src="banner.jpg" alt="Hourly Quran Banner" width="100%">
-  </picture>
+  <img src="images/banner.png" alt="Banner" />
 </p>
 
 <p align="center">
@@ -19,6 +15,16 @@
 **Hourly Quran** is a Windows desktop utility that automatically delivers Qur’anic verses every hour — helping you stay consistent in remembrance, reflection, and recitation.
 
 It blends **automation, simplicity, and spirituality** into a seamless experience.
+
+<p align="center">
+
+<img src="https://img.shields.io/badge/PowerShell-Scripting-5391FE?style=flat-square&logo=powershell&logoColor=white">
+<img src="https://img.shields.io/badge/WPF-UI_Framework-512BD4?style=flat-square&logo=dotnet&logoColor=white">
+<img src="https://img.shields.io/badge/Windows-Platform-0078D6?style=flat-square&logo=windows&logoColor=white">
+<img src="https://img.shields.io/badge/MCI-Audio_Engine-444444?style=flat-square">
+<img src="https://img.shields.io/badge/Task_Scheduler-Automation-107C10?style=flat-square&logo=windows&logoColor=white">
+
+</p>
 
 ---
 
@@ -65,24 +71,6 @@ Expand from selected verses to the entire Surah.
 
 ---
 
-<details>
-<summary>🛠️ Tech Stack</summary>
-
-<br>
-
-<p align="center">
-
-<img src="https://img.shields.io/badge/PowerShell-Scripting-5391FE?style=flat-square&logo=powershell&logoColor=white">
-<img src="https://img.shields.io/badge/WPF-UI_Framework-512BD4?style=flat-square&logo=dotnet&logoColor=white">
-<img src="https://img.shields.io/badge/Windows-Platform-0078D6?style=flat-square&logo=windows&logoColor=white">
-<img src="https://img.shields.io/badge/MCI-Audio_Engine-444444?style=flat-square">
-<img src="https://img.shields.io/badge/Task_Scheduler-Automation-107C10?style=flat-square&logo=windows&logoColor=white">
-
-</p>
-
-</details>
-
----
 
 <details open>
 <summary>📥 Installation & Tutorial</summary>
