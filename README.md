@@ -2,6 +2,11 @@
   <img src="images/banner.png" alt="Banner" />
 </p>
 
+<p align="center">
+  <img src="images/icon.png" alt="Hourly Quran Icon" width="200"/>
+</p>
+
+<br>
 
 <p align="center">
 <h1> ☪︎ Hourly Quran ☪︎ </h1>
@@ -28,10 +33,7 @@ It blends **automation, simplicity, and spirituality** into a seamless experienc
 
 ---
 
-<details>
-<summary>🌟 Features</summary>
-
-<br>
+## 🌟 Features
 
 🕐 **Hourly Verse Delivery**  
 Receive verses automatically every hour.
@@ -53,58 +55,81 @@ Expand from selected verses to the entire Surah.
 - 🔄 Alternating Mode  
 - ⚖️ Priority Mode  
 
-</details>
-
 ---
 
-<details>
-<summary>⚙️ How It Works</summary>
-
-<br>
+## ⚙️ How It Works
 
 - 🧠 **PowerShell** handles logic and automation  
 - 🖥️ **Windows Task Scheduler** ensures **hourly startup automatically**  
 - 🎨 **WPF** provides a modern interface  
 - 🎵 **Windows MCI** handles audio playback  
 
-</details>
+---
+
+## 🖼️ Screenshots & Guide
+
+### 🕐 Main Reminder Popup
+
+<p align="center">
+  <img src="images/screenshot.png" alt="Main Popup" />
+</p>
+
+### ⚙️ Settings Interface
+
+<p align="center">
+  <img src="images/screenshotb.png" alt="Settings Interface" />
+</p>
+
+### 💡 Usage Tips
+
+- 📝 **Buttons are in Arabic** → refer to the screenshots for guidance  
+
+- ⚙️ **Settings Button**  
+  Opens the settings popup where you can customize:
+  - Number of verses  
+  - Reciter  
+  - Modes and behavior  
+
+- 🎧 **Tilawa Button**  
+  Recites the verses using your selected reciter  
+
+- 📖 **Surah Button**  
+  Shows the full Surah from which the verses are taken  
+
+- 📘 **Read Button** *(Khitma Mode only)*  
+  Marks current verses as read and continues with the next verses in the following hour  
+
+- ⏱️ **Popup Duration**  
+  Automatically adjusts based on verse length  
+  You can close it anytime using the ❌ (top-left button)  
 
 ---
 
-
-<details open>
-<summary>📥 Installation & Tutorial</summary>
-
-<br>
+## 📥 Installation & Tutorial
 
 **Step 1:** Download from **Releases** or clone the repository  
 
-**Step 2:** Extract into any folder you want except system folders like "Program Files"
+**Step 2:** Extract into any folder you want except system folders like `"Program Files"`  
 
 **Step 3:** Run `Install_HourlyQuran.bat`  
 
-**Step 4:** Input `1` then press `enter` to install the scheduled task
+**Step 4:** Input `1` then press `Enter` to install the scheduled task 
 
 **Step 5:** Let the Qur’an accompany your hours 🤲🌙  
 
 > “And remind, for indeed, the reminder benefits the believers.” ☪️  
 
-</details>
+⚠️ Do NOT move the folder after installation, if it was moved simply repeat step 4.
+And to uninstall input 2 instead of 1.
 
 ---
 
-<details>
-<summary>📦 Credits</summary>
-
-<br>
-
-- ‍👨‍💻 Author → MDJ-Github (Me ^_^)
+## 📦 Credits
+- 👨‍💻 Author → MDJ-Github (Me ^_^)  
 - 📖 Qur’an Text → Risan's Qur’an JSON  
 - 🎧 Recitations → EveryAyah Project  
 - 💡 Inspiration → Aunt Souma  
 - ❤️ Support → Family  
-
-</details>
 
 ---
 
