@@ -1,2 +1,139 @@
-# HourlyQuran
-Receive five verses (ayats) every hour from the greatest book of all — the Quran.
+# 🕌 Hourly Quran
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="images/banner.jpg">
+    <source media="(prefers-color-scheme: light)" srcset="images/banner.jpg">
+    <img src="banner.jpg" alt="Hourly Quran Banner" width="100%">
+  </picture>
+</p>
+
+<p align="center">
+  🌙 A calm companion for your day — bringing the Words of Allah ﷻ to you every hour  
+</p>
+
+---
+
+## ✨ Overview
+
+**Hourly Quran** is a Windows desktop utility that automatically delivers Qur’anic verses every hour — helping you stay consistent in remembrance, reflection, and recitation.
+
+It blends **automation, simplicity, and spirituality** into a seamless experience.
+
+---
+
+<details>
+<summary>🌟 Features</summary>
+
+<br>
+
+🕐 **Hourly Verse Delivery**  
+Receive verses automatically every hour.
+
+🎧 **Audio Recitation**  
+Listen using multiple reciters.
+
+📖 **Full Surah Access**  
+Expand from selected verses to the entire Surah.
+
+⚙️ **Full Customization**
+- Adjust popup duration ⏳  
+- Control number of verses 🔢  
+- Display full Surahs 📘  
+
+🎯 **Smart Modes**
+- 📘 Khitma Mode  
+- 🎲 Random Mode  
+- 🔄 Alternating Mode  
+- ⚖️ Priority Mode  
+
+</details>
+
+---
+
+<details>
+<summary>⚙️ How It Works</summary>
+
+<br>
+
+- 🧠 **PowerShell** handles logic and automation  
+- 🖥️ **Windows Task Scheduler** ensures **hourly startup automatically**  
+- 🎨 **WPF** provides a modern interface  
+- 🎵 **Windows MCI** handles audio playback  
+
+</details>
+
+---
+
+<details>
+<summary>🛠️ Tech Stack</summary>
+
+<br>
+
+<p align="center">
+
+<img src="https://img.shields.io/badge/PowerShell-Scripting-5391FE?style=flat-square&logo=powershell&logoColor=white">
+<img src="https://img.shields.io/badge/WPF-UI_Framework-512BD4?style=flat-square&logo=dotnet&logoColor=white">
+<img src="https://img.shields.io/badge/Windows-Platform-0078D6?style=flat-square&logo=windows&logoColor=white">
+<img src="https://img.shields.io/badge/MCI-Audio_Engine-444444?style=flat-square">
+<img src="https://img.shields.io/badge/Task_Scheduler-Automation-107C10?style=flat-square&logo=windows&logoColor=white">
+
+</p>
+
+</details>
+
+---
+
+<details open>
+<summary>📥 Installation & Tutorial</summary>
+
+<br>
+
+**Step 1:** Download from **Releases** or clone the repository  
+
+**Step 2:** Extract into any folder you want except system folders like "Program Files"
+
+**Step 3:** Run `Install_HourlyQuran.bat`  
+
+**Step 4:** Enter `1` to install the scheduled task  
+
+**Step 5:** ⚠️ Do NOT move the folder after installation  
+- If needed:  
+  - Run installer → press `2` (uninstall)  
+  - Move folder  
+  - Run installer → press `1` (reinstall)  
+
+**Step 6:** Let the Qur’an accompany your hours 🤲🌙  
+
+> “And remind, for indeed, the reminder benefits the believers.” ☪️  
+
+</details>
+
+---
+
+<details>
+<summary>📦 Credits</summary>
+
+<br>
+
+- 📖 Qur’an Text → Risan's Qur’an JSON  
+- 🎧 Recitations → EveryAyah Project  
+- 💡 Inspiration → Aunt Souma  
+- ❤️ Support → Family  
+
+</details>
+
+---
+
+## 👨‍💻 Author
+
+**Mohamed Dhia Jebali**  
+Cloud & Computer Science Engineer ☁️💻  
+
+---
+
+## 🕌 Final Note
+
+May this tool bring barakah into your daily life and make the Qur’an your constant companion.
+
+> 🤲 “O Allah, make the Qur’an the light of our hearts.”
