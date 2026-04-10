@@ -1,7 +1,7 @@
 ﻿{
-    "mode":  "percentage",
+    "mode":  "equalBoth",
     "percentage":  33,
-    "timerMultiplier":  1.5,
+    "timerMultiplier":  1,
     "verseCount":  5,
     "fullSurah":  false,
     "reciter":  "none"

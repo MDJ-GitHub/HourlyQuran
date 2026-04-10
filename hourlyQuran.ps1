@@ -42,7 +42,7 @@ function Get-ReciterDisplayName($rObj) {
     return $rObj.name
 }
 function Get-Settings {
-    $defaults = [PSCustomObject]@{ mode="percentage"; percentage=33; timerMultiplier=1.0; verseCount=5; fullSurah=$false; reciter="none" }
+    $defaults = [PSCustomObject]@{ mode="equalBoth"; percentage=33; timerMultiplier=1.0; verseCount=5; fullSurah=$false; reciter="none" }
     if (Test-Path $settingsFile) {
         try {
             $raw = Get-Content $settingsFile -Encoding UTF8 | ConvertFrom-Json

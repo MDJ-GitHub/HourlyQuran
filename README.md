@@ -83,15 +83,9 @@ Expand from selected verses to the entire Surah.
 
 **Step 3:** Run `Install_HourlyQuran.bat`  
 
-**Step 4:** Enter `1` to install the scheduled task  
+**Step 4:** Input `1` then press `enter` to install the scheduled task
 
-**Step 5:** ⚠️ Do NOT move the folder after installation  
-- If needed:  
-  - Run installer → press `2` (uninstall)  
-  - Move folder  
-  - Run installer → press `1` (reinstall)  
-
-**Step 6:** Let the Qur’an accompany your hours 🤲🌙  
+**Step 5:** Let the Qur’an accompany your hours 🤲🌙  
 
 > “And remind, for indeed, the reminder benefits the believers.” ☪️  
 
@@ -104,19 +98,13 @@ Expand from selected verses to the entire Surah.
 
 <br>
 
+- ‍👨‍💻 Author → MDJ-Github (Me ^_^)
 - 📖 Qur’an Text → Risan's Qur’an JSON  
 - 🎧 Recitations → EveryAyah Project  
 - 💡 Inspiration → Aunt Souma  
 - ❤️ Support → Family  
 
 </details>
-
----
-
-## 👨‍💻 Author
-
-**Mohamed Dhia Jebali**  
-Cloud & Computer Science Engineer ☁️💻  
 
 ---
 

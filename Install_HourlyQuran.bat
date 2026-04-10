@@ -77,7 +77,7 @@ if !errorlevel!==0 (
 )
 
 echo Creating scheduled task...
-schtasks /create /tn "HourlyQuran" /tr "wscript.exe \"!SCRIPT_PATH!\"" /sc hourly /mo 1 /st 00:01 /rl highest /f
+schtasks /create /tn "HourlyQuran" /tr "wscript.exe \"!SCRIPT_PATH!\"" /sc hourly /mo 1 /st 00:00 /rl highest /f
 if !errorlevel!==0 (
     echo SUCCESS: Task created successfully!
 ) else (
