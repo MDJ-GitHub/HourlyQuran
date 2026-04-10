@@ -1,10 +1,10 @@
-# ☪︎ Hourly Quran ☪︎
-
 <p align="center">
   <img src="images/banner.png" alt="Banner" />
 </p>
 
+
 <p align="center">
+<h1> ☪︎ Hourly Quran ☪︎ </h1>
   🌙 A calm companion for your day — bringing the Words of Allah ﷻ to you every hour  
 </p>
 
