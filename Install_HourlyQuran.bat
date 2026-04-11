@@ -35,7 +35,7 @@ echo ============================================
 echo        Hourly Quran Task Manager
 echo ============================================
 echo.
-echo   [1] Install Hourly Quran Scheduled Task and Fonts
+echo   [1] Install Hourly Quran Scheduled Task
 echo   [2] Uninstall Hourly Quran Scheduled Task
 echo   [3] Help
 echo   [0] Exit
@@ -58,7 +58,6 @@ echo.
 
 :: Build paths using delayed expansion to handle special chars
 set "SCRIPT_PATH=%~dp0launch.vbs"
-set "FONT_PATH=%~dp0fonts"
 
 :: Check if script exists
 if not exist "!SCRIPT_PATH!" (
@@ -104,31 +103,6 @@ if !errorlevel!==0 (
     echo WARNING: Battery settings could not be applied.
 )
 del "!PS_TEMP!" >nul 2>&1
-
-echo.
-
-:: ============================
-:: INSTALL FONTS
-:: ============================
-echo Checking fonts...
-set FONTS_INSTALLED=1
-
-for %%F in ("!FONT_PATH!\*.ttf") do (
-    if not exist "C:\Windows\Fonts\%%~nxF" (
-        echo Installing %%~nxF...
-        copy "%%F" "C:\Windows\Fonts\" >nul 2>&1
-        reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts" /v "%%~nF (TrueType)" /t REG_SZ /d "%%~nxF" /f >nul 2>&1
-        set FONTS_INSTALLED=0
-    ) else (
-        echo %%~nxF already installed.
-    )
-)
-
-if !FONTS_INSTALLED!==1 (
-    echo All fonts already installed.
-) else (
-    echo Fonts installed successfully.
-)
 
 echo.
 echo ============================================
@@ -188,5 +162,5 @@ echo.
 echo For more details and guide on how to use hte program use visit the github repository page.
 echo GitHub: https://github.com/MDJ-GitHub/HourlyQuran
 echo.
-pause
+pause 
 goto menu

@@ -1,11 +1,16 @@
 ﻿# Hourly Quran
 $scriptDir    = if ($PSScriptRoot) { $PSScriptRoot } else { Split-Path $MyInvocation.MyCommand.Path -Parent }
-$quranPath    = Join-Path $scriptDir "docs/quran.json"
+$quranPath    = Join-Path $scriptDir "libraries/quran.json"
 $audioBase    = Join-Path $scriptDir "audio"
-$recitersFile = Join-Path $scriptDir "docs/reciters.json"
+$recitersFile = Join-Path $scriptDir "libraries/reciters.json"
 $khatmaFile   = Join-Path $scriptDir "configs/khitmaProgress.json"
 $settingsFile = Join-Path $scriptDir "configs/settings.json"
 $logFile      = Join-Path $scriptDir "logs/debug.log"
+$fontsDir     = Join-Path $scriptDir "fonts"
+
+# Build WPF font reference — loads directly from the local fonts folder, no installation needed
+# Format: "absolute/path/to/fonts/#Family Name"
+$fontRef = "$fontsDir/#Scheherazade New"
 
 function Get-Reciters {
     if (-not (Test-Path $recitersFile)) { Log "reciters.json not found at $recitersFile"; return @() }
@@ -60,6 +65,12 @@ function Save-Settings($s) {
     $s | ConvertTo-Json | Out-File -FilePath $settingsFile -Encoding UTF8
     Log "Settings saved: mode=$($s.mode) pct=$($s.percentage) mult=$($s.timerMultiplier) verses=$($s.verseCount) fullSurah=$($s.fullSurah) reciter=$($s.reciter)"
 }
+
+# Helper: replace all FontFamily attributes in a XAML string with the local font reference
+function Set-XamlFonts([string]$xamlStr) {
+    return $xamlStr -replace 'FontFamily="[^"]*"', "FontFamily=`"$fontRef`""
+}
+
 Log "=== SCRIPT STARTED === args: $($args -join ' ')"
 
 # =============================================================================
@@ -131,6 +142,7 @@ if ($args -contains '-stopplay') {
     } catch { Log "STOPPLAY ERROR: $_" }
     exit
 }
+
 # =============================================================================
 # MODE: ADVANCE-KHATMA
 # =============================================================================
@@ -185,7 +197,7 @@ if ($args -contains '-settings') {
         <StackPanel Margin="28,24,28,28">
             <!-- Header -->
             <Grid Margin="0,0,0,22">
-                <TextBlock Text="الإعدادات" FontSize="24" FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial"
+                <TextBlock Text="الإعدادات" FontSize="24" FontFamily="PLACEHOLDER_FONT"
                            Foreground="#8ab4f8" FontWeight="Bold" HorizontalAlignment="Right"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <Button Name="BtnMinimize" Content="─" Background="Transparent" BorderThickness="0"
@@ -195,8 +207,8 @@ if ($args -contains '-settings') {
                 </StackPanel>
             </Grid>
             <!-- Mode -->
-            <TextBlock Text="وضع العرض" FontSize="17" FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial" Foreground="#8ab4f8" Margin="0,0,0,9"/>
-            <ComboBox Name="CmbMode" FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial" FontSize="14"
+            <TextBlock Text="وضع العرض" FontSize="17" FontFamily="PLACEHOLDER_FONT" Foreground="#8ab4f8" Margin="0,0,0,9"/>
+            <ComboBox Name="CmbMode" FontFamily="PLACEHOLDER_FONT" FontSize="14"
                       Background="White" Foreground="Black" BorderBrush="#3a6bc4" Padding="8,5">
                 <ComboBoxItem Tag="onlyKhatma"  Content="ختمة فقط"                             Foreground="Black"/>
                 <ComboBoxItem Tag="onlyRandom"  Content="عشوائي فقط"                           Foreground="Black"/>
@@ -205,20 +217,20 @@ if ($args -contains '-settings') {
             </ComboBox>
             <!-- Percentage -->
             <StackPanel Name="PctPanel" Margin="0,15,0,0">
-                <TextBlock Text="نسبة احتمال العشوائي %" FontSize="16" FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial" Foreground="#8ab4f8" Margin="0,0,0,9"/>
+                <TextBlock Text="نسبة احتمال العشوائي %" FontSize="16" FontFamily="PLACEHOLDER_FONT" Foreground="#8ab4f8" Margin="0,0,0,9"/>
                 <Grid>
                     <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="58"/></Grid.ColumnDefinitions>
                     <Slider Name="SldPct" Grid.Column="0" Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True" Foreground="#3a6bc4" VerticalAlignment="Center" Margin="0,0,10,0"/>
-                    <TextBlock Name="LblPct" Grid.Column="1" FontSize="17" Foreground="White" FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial" VerticalAlignment="Center" TextAlignment="Center"/>
+                    <TextBlock Name="LblPct" Grid.Column="1" FontSize="17" Foreground="White" FontFamily="PLACEHOLDER_FONT" VerticalAlignment="Center" TextAlignment="Center"/>
                 </Grid>
             </StackPanel>
             <!-- Reciter -->
-            <TextBlock Text="القارئ" FontSize="17" FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial" Foreground="#8ab4f8" Margin="0,20,0,9"/>
+            <TextBlock Text="القارئ" FontSize="17" FontFamily="PLACEHOLDER_FONT" Foreground="#8ab4f8" Margin="0,20,0,9"/>
             <Grid>
                 <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
-                <ComboBox Grid.Column="0" Name="CmbReciter" FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial" FontSize="14"
+                <ComboBox Grid.Column="0" Name="CmbReciter" FontFamily="PLACEHOLDER_FONT" FontSize="14"
                           Background="White" Foreground="Black" BorderBrush="#3a6bc4" Padding="8,5" Margin="0,0,9,0"/>
-                <Button Grid.Column="1" Name="BtnDownload" FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial"
+                <Button Grid.Column="1" Name="BtnDownload" FontFamily="PLACEHOLDER_FONT"
                         FontSize="13" Foreground="White" BorderThickness="0" Padding="10,7" Cursor="Hand" VerticalAlignment="Center">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
@@ -234,29 +246,29 @@ if ($args -contains '-settings') {
             </Grid>
             <!-- Verse Count -->
             <StackPanel Name="VersePanel" Margin="0,20,0,0">
-                <TextBlock Text="عدد الآيات لكل إشعار" FontSize="17" FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial" Foreground="#8ab4f8" Margin="0,0,0,9"/>
+                <TextBlock Text="عدد الآيات لكل إشعار" FontSize="17" FontFamily="PLACEHOLDER_FONT" Foreground="#8ab4f8" Margin="0,0,0,9"/>
                 <Grid>
                     <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="58"/></Grid.ColumnDefinitions>
                     <Slider Name="SldVerses" Grid.Column="0" Minimum="1" Maximum="300" TickFrequency="1" IsSnapToTickEnabled="True" Foreground="#3a6bc4" VerticalAlignment="Center" Margin="0,0,10,0"/>
-                    <TextBlock Name="LblVerses" Grid.Column="1" FontSize="17" Foreground="White" FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial" VerticalAlignment="Center" TextAlignment="Center"/>
+                    <TextBlock Name="LblVerses" Grid.Column="1" FontSize="17" Foreground="White" FontFamily="PLACEHOLDER_FONT" VerticalAlignment="Center" TextAlignment="Center"/>
                 </Grid>
             </StackPanel>
             <!-- Full Surah checkbox -->
-            <CheckBox Name="ChkFullSurah" Margin="0,14,0,0" Foreground="White" Cursor="Hand" FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial" FontSize="16">
-                <TextBlock Text="عرض السورة كاملة (يُعطّل عدد الآيات)" Foreground="White" FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial" FontSize="16"/>
+            <CheckBox Name="ChkFullSurah" Margin="0,14,0,0" Foreground="White" Cursor="Hand" FontFamily="PLACEHOLDER_FONT" FontSize="16">
+                <TextBlock Text="عرض السورة كاملة (يُعطّل عدد الآيات)" Foreground="White" FontFamily="PLACEHOLDER_FONT" FontSize="16"/>
             </CheckBox>
             <!-- Timer multiplier -->
-            <TextBlock Text="معامل وقت القراءة" FontSize="17" FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial" Foreground="#8ab4f8" Margin="0,20,0,9"/>
-            <TextBlock FontSize="13" FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial" Foreground="#6a94d8" Margin="0,0,0,10" TextWrapping="Wrap"
+            <TextBlock Text="معامل وقت القراءة" FontSize="17" FontFamily="PLACEHOLDER_FONT" Foreground="#8ab4f8" Margin="0,20,0,9"/>
+            <TextBlock FontSize="13" FontFamily="PLACEHOLDER_FONT" Foreground="#6a94d8" Margin="0,0,0,10" TextWrapping="Wrap"
                        Text="1.0 = الوقت الافتراضي  |  2.0 = ضعف الوقت  |  0.5 = نصف الوقت"/>
             <Grid>
                 <Grid.ColumnDefinitions><ColumnDefinition Width="*"/><ColumnDefinition Width="58"/></Grid.ColumnDefinitions>
                 <Slider Name="SldMult" Grid.Column="0" Minimum="0.25" Maximum="3.0" TickFrequency="0.05" IsSnapToTickEnabled="True" Foreground="#3a6bc4" VerticalAlignment="Center" Margin="0,0,10,0"/>
-                <TextBlock Name="LblMult" Grid.Column="1" FontSize="17" Foreground="White" FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial" VerticalAlignment="Center" TextAlignment="Center"/>
+                <TextBlock Name="LblMult" Grid.Column="1" FontSize="17" Foreground="White" FontFamily="PLACEHOLDER_FONT" VerticalAlignment="Center" TextAlignment="Center"/>
             </Grid>
             <!-- Save -->
             <Button Name="BtnSave" Content="حفظ الإعدادات" Margin="0,20,0,0"
-                    FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial" FontSize="14"
+                    FontFamily="PLACEHOLDER_FONT" FontSize="14"
                     Background="#1a4a9e" Foreground="White" BorderThickness="0" Padding="0,7" Cursor="Hand">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
@@ -273,6 +285,8 @@ if ($args -contains '-settings') {
     </Border>
 </Window>
 "@
+
+        $xaml = Set-XamlFonts $xaml
 
         $reader = [System.Xml.XmlReader]::Create([System.IO.StringReader]::new($xaml))
         $win    = [System.Windows.Markup.XamlReader]::Load($reader)
@@ -413,7 +427,7 @@ if ($args -contains '-download') {
         </Border.Background>
         <StackPanel Margin="26,22,26,26">
             <Grid Margin="0,0,0,18">
-                <TextBlock Name="TitleLbl" FontSize="19" FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial"
+                <TextBlock Name="TitleLbl" FontSize="19" FontFamily="PLACEHOLDER_FONT"
                            Foreground="#8ab4f8" FontWeight="Bold" HorizontalAlignment="Right" TextWrapping="Wrap"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <Button Name="BtnMinDl" Content="─" Background="Transparent" BorderThickness="0"
@@ -422,7 +436,7 @@ if ($args -contains '-download') {
                             Foreground="#6a94d8" FontSize="16" Cursor="Hand" Padding="6,0"/>
                 </StackPanel>
             </Grid>
-            <TextBlock Name="StatusLbl" FontSize="17" FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial"
+            <TextBlock Name="StatusLbl" FontSize="17" FontFamily="PLACEHOLDER_FONT"
                        Foreground="#c8d8ff" TextWrapping="Wrap" Margin="0,0,0,16"
                        TextAlignment="Right" MinHeight="44" FlowDirection="LeftToRight"/>
             <Border Name="ProgContainer" CornerRadius="5" Background="#0d2240" Height="30" Margin="0,0,0,18">
@@ -439,7 +453,7 @@ if ($args -contains '-download') {
                 </Grid>
             </Border>
             <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight">
-                <Button Name="BtnStart" FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial" FontSize="13"
+                <Button Name="BtnStart" FontFamily="PLACEHOLDER_FONT" FontSize="13"
                         Foreground="White" BorderThickness="0" Padding="12,7" Cursor="Hand" Margin="0,0,8,0">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
@@ -453,7 +467,7 @@ if ($args -contains '-download') {
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
-                <Button Name="BtnPause" FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial" FontSize="13"
+                <Button Name="BtnPause" FontFamily="PLACEHOLDER_FONT" FontSize="13"
                         Foreground="White" BorderThickness="0" Padding="12,7" Cursor="Hand"
                         Margin="0,0,8,0" IsEnabled="False" Background="#1a5a2a">
                     <Button.Template>
@@ -468,7 +482,7 @@ if ($args -contains '-download') {
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
-                <Button Name="BtnCancel" FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial" FontSize="13"
+                <Button Name="BtnCancel" FontFamily="PLACEHOLDER_FONT" FontSize="13"
                         Foreground="White" BorderThickness="0" Padding="12,7" Cursor="Hand"
                         Background="#5a1a1a" IsEnabled="False">
                     <Button.Template>
@@ -488,6 +502,8 @@ if ($args -contains '-download') {
     </Border>
 </Window>
 "@
+
+        $xamlDl = Set-XamlFonts $xamlDl
 
         $rdr2=$([System.Xml.XmlReader]::Create([System.IO.StringReader]::new($xamlDl)))
         $dlWin=[System.Windows.Markup.XamlReader]::Load($rdr2)
@@ -768,7 +784,9 @@ if ($args -contains '-popup') {
         $headerTitleXml=[System.Security.SecurityElement]::Escape($headerTitle)
         $khatmaRowVis=if($isKhatma){'Visible'}else{'Collapsed'}
 
-        $noAudioXmlStr = '<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Title="تلاوة" Width="440" SizeToContent="Height" WindowStartupLocation="CenterScreen" FlowDirection="RightToLeft" Background="Transparent" WindowStyle="None" AllowsTransparency="True" ResizeMode="NoResize" Topmost="True"><Border CornerRadius="12" BorderThickness="1" BorderBrush="#3a6bc4"><Border.Background><LinearGradientBrush StartPoint="0,0" EndPoint="0,1"><GradientStop Color="#F70d1b3e" Offset="0"/><GradientStop Color="#F7071428" Offset="1"/></LinearGradientBrush></Border.Background><StackPanel Margin="28,26,28,26"><TextBlock Text="&#x1F507;" FontSize="34" Foreground="White" HorizontalAlignment="Center" Margin="0,0,0,14"/><TextBlock FontSize="17" FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial" Foreground="#c8d8ff" TextWrapping="Wrap" TextAlignment="Center" Margin="0,0,0,8">لم تقم باختيار قارئ بعد</TextBlock><TextBlock FontSize="15" FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial" Foreground="#8ab4f8" TextWrapping="Wrap" TextAlignment="Center" Margin="0,0,0,22">اذهب إلى الإعدادات واختر قارئك المفضل&#x0a;سيتطلب ذلك تحميل ملفات التلاوة الصوتية للقارئ</TextBlock><StackPanel Orientation="Horizontal" HorizontalAlignment="Center" FlowDirection="LeftToRight"><Button Name="BtnGoSettings" FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial" FontSize="13" Foreground="White" BorderThickness="0" Padding="12,7" Cursor="Hand" Background="#1a4a9e" Margin="0,0,10,0"><Button.Template><ControlTemplate TargetType="Button"><Border Name="Bd" Background="{TemplateBinding Background}" CornerRadius="8" Padding="{TemplateBinding Padding}"><ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/></Border><ControlTemplate.Triggers><Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Bd" Property="Background" Value="#2a5298"/></Trigger></ControlTemplate.Triggers></ControlTemplate></Button.Template>&#x2699; فتح الإعدادات</Button><Button Name="BtnDismiss" FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial" FontSize="13" Foreground="White" BorderThickness="0" Padding="12,7" Cursor="Hand" Background="#2a2a3a"><Button.Template><ControlTemplate TargetType="Button"><Border Name="Bd" Background="{TemplateBinding Background}" CornerRadius="8" Padding="{TemplateBinding Padding}"><ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/></Border><ControlTemplate.Triggers><Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Bd" Property="Background" Value="#44445a"/></Trigger></ControlTemplate.Triggers></ControlTemplate></Button.Template>إغلاق</Button></StackPanel></StackPanel></Border></Window>'
+        $noAudioXmlStr = '<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Title="تلاوة" Width="440" SizeToContent="Height" WindowStartupLocation="CenterScreen" FlowDirection="RightToLeft" Background="Transparent" WindowStyle="None" AllowsTransparency="True" ResizeMode="NoResize" Topmost="True"><Border CornerRadius="12" BorderThickness="1" BorderBrush="#3a6bc4"><Border.Background><LinearGradientBrush StartPoint="0,0" EndPoint="0,1"><GradientStop Color="#F70d1b3e" Offset="0"/><GradientStop Color="#F7071428" Offset="1"/></LinearGradientBrush></Border.Background><StackPanel Margin="28,26,28,26"><TextBlock Text="&#x1F507;" FontSize="34" Foreground="White" HorizontalAlignment="Center" Margin="0,0,0,14"/><TextBlock FontSize="17" FontFamily="PLACEHOLDER_FONT" Foreground="#c8d8ff" TextWrapping="Wrap" TextAlignment="Center" Margin="0,0,0,8">لم تقم باختيار قارئ بعد</TextBlock><TextBlock FontSize="15" FontFamily="PLACEHOLDER_FONT" Foreground="#8ab4f8" TextWrapping="Wrap" TextAlignment="Center" Margin="0,0,0,22">اذهب إلى الإعدادات واختر قارئك المفضل&#x0a;سيتطلب ذلك تحميل ملفات التلاوة الصوتية للقارئ</TextBlock><StackPanel Orientation="Horizontal" HorizontalAlignment="Center" FlowDirection="LeftToRight"><Button Name="BtnGoSettings" FontFamily="PLACEHOLDER_FONT" FontSize="13" Foreground="White" BorderThickness="0" Padding="12,7" Cursor="Hand" Background="#1a4a9e" Margin="0,0,10,0"><Button.Template><ControlTemplate TargetType="Button"><Border Name="Bd" Background="{TemplateBinding Background}" CornerRadius="8" Padding="{TemplateBinding Padding}"><ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/></Border><ControlTemplate.Triggers><Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Bd" Property="Background" Value="#2a5298"/></Trigger></ControlTemplate.Triggers></ControlTemplate></Button.Template>&#x2699; فتح الإعدادات</Button><Button Name="BtnDismiss" FontFamily="PLACEHOLDER_FONT" FontSize="13" Foreground="White" BorderThickness="0" Padding="12,7" Cursor="Hand" Background="#2a2a3a"><Button.Template><ControlTemplate TargetType="Button"><Border Name="Bd" Background="{TemplateBinding Background}" CornerRadius="8" Padding="{TemplateBinding Padding}"><ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/></Border><ControlTemplate.Triggers><Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Bd" Property="Background" Value="#44445a"/></Trigger></ControlTemplate.Triggers></ControlTemplate></Button.Template>إغلاق</Button></StackPanel></StackPanel></Border></Window>'
+
+        $noAudioXmlStr = Set-XamlFonts $noAudioXmlStr
 
         $xaml = @"
 <Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -783,7 +801,7 @@ if ($args -contains '-popup') {
         <Style x:Key="Btn" TargetType="Button">
             <Setter Property="Foreground" Value="White"/><Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Padding" Value="10,2"/><Setter Property="FontSize" Value="15"/>
-            <Setter Property="FontFamily" Value="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial"/><Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontFamily" Value="PLACEHOLDER_FONT"/><Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -809,18 +827,18 @@ if ($args -contains '-popup') {
             </Grid.RowDefinitions>
             <Image Name="WatermarkImg" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"
                    Width="260" Height="260" Opacity="0.058" RenderOptions.BitmapScalingMode="HighQuality" IsHitTestVisible="False"/>
-            <!-- FIXED HEADER: Auto title + * basmala + Auto countdown + Auto close -->
+            <!-- FIXED HEADER -->
             <Grid Grid.Row="0" Margin="0,0,0,10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/><ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0" Text="$headerTitleXml" FontSize="16" Foreground="#8ab4f8"
-                           FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial"
+                           FontFamily="PLACEHOLDER_FONT"
                            VerticalAlignment="Center" TextWrapping="NoWrap" TextAlignment="Right" Margin="0,0,10,0"/>
                 <TextBlock Grid.Column="1"
                            Text="&#x0628;&#x0650;&#x0633;&#x0652;&#x0645;&#x0650; &#x0627;&#x0644;&#x0644;&#x0651;&#x064E;&#x0647;&#x0650; &#x0627;&#x0644;&#x0631;&#x0651;&#x064E;&#x062D;&#x0652;&#x0645;&#x064E;&#x0670;&#x0646;&#x0650; &#x0627;&#x0644;&#x0631;&#x0651;&#x064E;&#x062D;&#x0650;&#x064A;&#x0645;&#x0650;"
-                           FontSize="18" FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial"
+                           FontSize="18" FontFamily="PLACEHOLDER_FONT"
                            Foreground="#c8d8ff" TextAlignment="Center" VerticalAlignment="Center"
                            HorizontalAlignment="Stretch"/>
                 <TextBlock Grid.Column="2" Name="CountdownLabel" FontSize="11" Foreground="#6a94d8"
@@ -844,7 +862,7 @@ if ($args -contains '-popup') {
                               VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled"
                               CanContentScroll="False" PanningMode="VerticalOnly" PanningDeceleration="0.001" PanningRatio="1">
                     <TextBlock Name="VerseBlock" FontSize="27"
-                               FontFamily="Scheherazade New, KFGQPC Uthmanic Script HAFS, Traditional Arabic, Arial"
+                               FontFamily="PLACEHOLDER_FONT"
                                TextWrapping="Wrap" LineHeight="56" Foreground="White" TextAlignment="Right"/>
                 </ScrollViewer>
             </Grid>
@@ -869,6 +887,8 @@ if ($args -contains '-popup') {
     </Border>
 </Window>
 "@
+
+        $xaml = Set-XamlFonts $xaml
 
         $reader=[System.Xml.XmlReader]::Create([System.IO.StringReader]::new($xaml))
         $window=[System.Windows.Markup.XamlReader]::Load($reader)

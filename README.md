@@ -13,6 +13,11 @@
 </td>
 <td align="left" width="60%">
 
+<p align="center">
+<h1> ☪︎ Hourly Quran ☪︎ </h1>
+🌙 A calm companion for your day — bringing the Words of Allah ﷻ to you every hour  
+</p>
+
 ## ✨ Overview
 
 **Hourly Quran** is a Windows desktop utility that automatically delivers Qur’anic verses every hour — helping you stay consistent in remembrance, reflection, and recitation.
@@ -25,10 +30,7 @@ It blends **automation, simplicity, and spirituality** into a seamless experienc
 
 <br>
 
-<p align="center">
-<h1> ☪︎ Hourly Quran ☪︎ </h1>
-🌙 A calm companion for your day — bringing the Words of Allah ﷻ to you every hour  
-</p>
+
 
 ---
 
@@ -92,26 +94,21 @@ Expand from selected verses to the entire Surah.
 
 <div align="left">
 
-- 📝 **Buttons are in Arabic** → refer to the screenshots for guidance  
-
-- ⚙️ **Settings Button**  
-  Opens the settings popup where you can customize:
-  - Number of verses  
-  - Reciter  
-  - Modes and behavior  
-
-- 🎧 **Tilawa Button**  
+- ⚙️ **(الإعدادات) Settings Button**  
+  Opens the settings popup where you can customize various things:
+=
+- 🔊 **(تلاوة) Tilawa Button**  
   Recites the verses using your selected reciter  
 
-- 📖 **Surah Button**  
+- 📖 **(السورة) Surah Button**  
   Shows the full Surah from which the verses are taken  
 
-- 📘 **Read Button** *(Khitma Mode only)*  
+- ✔️ **(قرأت) Read Button** *(Khitma Mode only)*  
   Marks current verses as read and continues with the next verses in the following hour  
 
 - ⏱️ **Popup Duration**  
   Automatically adjusts based on verse length  
-  You can close it anytime using the ❌ (top-left button)  
+  You can close it anytime using the ❌ button next to it
 
 </div>
 
@@ -120,6 +117,29 @@ Expand from selected verses to the entire Surah.
 
 ### ⚙️ Settings Interface  
 <img src="images/screenshotb.png" alt="Settings Interface" />
+
+<br>
+
+### 💡 Settings Tips
+
+<div align="left">
+
+- 🎯 **Mode**  
+  Change between *Khitma*, *Random*, *Alternating*, and *Khitma with Chance of Random* modes  
+
+- 🎧 **Reciter**  
+  Select your favorite reciter *(download required — use the download button to get audio files)*  
+
+- 🔢 **Number of Verses**  
+  Choose how many verses you will receive every hour  
+
+- 📖 **Full Surah**  
+  Display the full Surah instead of selected verses  
+
+- ⏱️ **Timer Length**  
+  Adjust based on your reading speed  
+
+</div>
 
 </td>
 </tr>
@@ -142,17 +162,17 @@ Expand from selected verses to the entire Surah.
 > “And remind, for indeed, the reminder benefits the believers.” ☪️  
 
 ⚠️ Do NOT move the folder after installation. If it was moved, simply repeat step 4.  
-⚠️ To uninstall, input `2` instead of `1`.
 
 ---
 
 ## 📦 Credits
 
-- 👨‍💻 Author → MDJ-Github (Me ^_^)  
-- 📖 Qur’an Text → Risan's Qur’an JSON  
-- 🎧 Recitations → EveryAyah Project  
-- 💡 Inspiration → Aunt Souma  
-- ❤️ Support → Family  
+- 👨‍💻 Author → MDJ-Github (Me ^_^)
+- 📖 Qur’an Text → Risan's Qur’an JSON
+- 🎧 Recitations → Every Ayah 
+- ✏️ Fonts → Google Fonts
+- 💡 Inspiration → Aunt Souma
+- ❤️ Support → Family
 
 ---
 
