@@ -54,6 +54,12 @@ Receive verses automatically every hour.
 🎧 **Audio Recitation**  
 Listen using multiple reciters.
 
+🎯 **Smart Modes**
+- 📘 Khitma Mode: Start recieving verses hourly of the entire quran from start to finish. Practically doing a Khitma!
+- 🎲 Random Mode: Recieve random sets of sequential verses.
+- 🔄 Alternating Mode: Alternate between Khitma and Random modes back to back.
+- ⚖️ Priority Mode: Khitma mode but with chance of getting random mode (the chance is adjustable in settings)  
+
 📖 **Full Surah Access**  
 Expand from selected verses to the entire Surah.
 
@@ -61,12 +67,7 @@ Expand from selected verses to the entire Surah.
 - Adjust popup duration ⏳  
 - Control number of verses 🔢  
 - Display full Surahs 📘  
-
-🎯 **Smart Modes**
-- 📘 Khitma Mode  
-- 🎲 Random Mode  
-- 🔄 Alternating Mode  
-- ⚖️ Priority Mode  
+- Change the reciter 📘  
 
 ---
 
@@ -94,16 +95,16 @@ Expand from selected verses to the entire Surah.
 
 <div align="left">
 
-- ⚙️ **(الإعدادات) Settings Button**  
+- ⚙️ **Settings Button (الإعدادات)**  
   Opens the settings popup where you can customize various things:
 =
-- 🔊 **(تلاوة) Tilawa Button**  
+- 🔊 **Tilawa Button (تلاوة)**  
   Recites the verses using your selected reciter  
 
-- 📖 **(السورة) Surah Button**  
+- 📖 **Surah Button (السورة)**  
   Shows the full Surah from which the verses are taken  
 
-- ✔️ **(قرأت) Read Button** *(Khitma Mode only)*  
+- ✔️ **Read Button (قرأت)** *(Khitma Mode only)*  
   Marks current verses as read and continues with the next verses in the following hour  
 
 - ⏱️ **Popup Duration**  
@@ -124,19 +125,18 @@ Expand from selected verses to the entire Surah.
 
 <div align="left">
 
-- 🎯 **Mode**  
-  Change between *Khitma*, *Random*, *Alternating*, and *Khitma with Chance of Random* modes  
+- 🎯 **Mode (وضع العرض)**  
+  Change between *Khitma*, *Random*, *Alternating*, and *Priority* modes 
+  (A slider under it will appear when you select Priority mode to adjust the chance of Random mode appearing)
 
-- 🎧 **Reciter**  
+- 🎧 **Reciter (القارئ)**  
   Select your favorite reciter *(download required — use the download button to get audio files)*  
 
-- 🔢 **Number of Verses**  
-  Choose how many verses you will receive every hour  
+- 🔢 **Number of Verses each time (عدد الآيات لكل إشهار)**  
+  Choose how many verses you will receive every hour 
+  (A checkbox under it can be used to view entire surah instead) 
 
-- 📖 **Full Surah**  
-  Display the full Surah instead of selected verses  
-
-- ⏱️ **Timer Length**  
+- ⏱️ **Timer Length (معامل وقت القراءة)**  
   Adjust based on your reading speed  
 
 </div>
